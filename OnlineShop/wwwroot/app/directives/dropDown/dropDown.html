@@ -1,0 +1,6 @@
+﻿<div class="form-group ">
+    <label for="repeatSelect" class="{{textClass}}"><span ng-if="icon" class="{{icon}}" aria-hidden="true"></span>{{text}}</label>
+    <select name="repeatSelect" id="repeatSelect" ng-model="ngModel" class="form-control" ng-options="option as option.name for option in options track by option.id">
+        <!--<option ng-repeat="option in options" class="form-control" value="{{option.id}}">{{option.name}}</option>-->
+    </select>
+</div>

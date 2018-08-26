@@ -1,0 +1,61 @@
+﻿<div class="container">
+    <h3 class="text-info">{{title}}</h3>
+    <div class="row">
+        <div class="col-md-12 alert-danger" ng-if="errorMessage" ng-bind="errorMessage"></div>
+        <div class="col-md-12 alert-success" ng-if="successMessage" ng-bind="successMessage"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-9" ng-if="cartItems">
+            <button class="btn btn-primary pull-right" type="button" ng-click="goToCheckOut()"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Check Out</button>
+            <a class="shopmore" ui-sref="products"><span class="glyphicon glyphicons-unshare" aria-hidden="true"></span>Shop More</a>
+            <table class="table table-striped top-buffer" ng-if="cartItems">
+                <thead class="thead-dark">
+                    <tr>
+                        <!--<th scope="col">#</th>-->
+                        <th scope="col"></th>
+                        <th scope="col">Items</th>
+                        <th scope="col">
+                            Qty
+                            <img ng-src="app/images/gifs/ajax-loader.gif" ng-show="loading" />
+                        </th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in cartItems">
+
+                        <!--<th scope="row">{{$index +1}}</th>-->
+                        <td class="imageColumn"><img ng-src="{{item.imagePath}}" class="cartItem-image" ng-click="itemDetails(item.productId)" /></td>
+                        <td class="itemDescriptionColumn"><b>{{item.productName}}</b><br /> {{item.productDescription}}</td>
+                        <td class="itemCountColumn">
+                            <input type="number" ng-model="item.productCount" class="itemCount" ng-change="itemQuantityChanged(item.productId,item.productCount,{{item.productCount}})" />
+                        </td>
+                        <td class="itemPriceColumn">
+                            <div>
+                                {{item.productCount * item.productPrice |currency}}
+
+                            </div>
+                            <button type="button" class="btn-primary" ng-click="rmoveItem(item.productId,item.productCount)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot class="thead-dark">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td ng-bind="total|currency">
+                            <!--{{}}-->
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+            <button class="btn btn-primary pull-right" type="button" ng-click="goToCheckOut()"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Check Out</button>
+        </div>
+        <div class="col-md-3">
+
+
+        </div>
+    </div>
+
+</div>

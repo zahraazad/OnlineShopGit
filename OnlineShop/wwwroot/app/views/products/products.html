@@ -1,0 +1,34 @@
+﻿<div class="container">
+    <h3 class="text-info">{{title}}</h3>
+    <div class="row">
+        <div class="col-md-12 alert-danger" ng-if="errorMessage" ng-bind="errorMessage"></div>
+        <div class="col-md-12 alert-success" ng-if="successMessage" ng-bind="successMessage"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <drop-down ng-model="selectedGroupId" options="productGroups" text="Filter" text-class="text-info" icon="glyphicon glyphicon-filter"></drop-down>
+        </div>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4 ">
+            <a ng-if="loggedIn" ng-click="addProduct(product.id)" class="pull-right form-group"><span class="glyphicon glyphicon-plus"></span>Add new product</a>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-3" ng-repeat="remainder in [0,1,2,3]">
+            <div class="form-group" ng-repeat="product in products | filter: (selectedGroupId.id==null ? ture : { groupId: selectedGroupId.id })" ng-if="$index % 4 == remainder">
+                <div class="row" ng-if="loggedIn">
+                    <a ng-click="updateProduct(product.id)"><span class="glyphicon glyphicon-pencil"></span>{{product.name}} </a>
+                    <a ng-click="deleteProduct(product.id)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete</a>
+                </div>
+                <!--<div class="row" ng-if="!loggedIn">
+                    <a ng-click="addToCart(product.id)"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to cart</a>
+                </div>-->
+                <div class="row ">
+                    <img ng-src="{{product.imagePath}}" class="img-thumbnail product-image" ng-click="updateProduct(product.id)" title="{{product.description}}  {{product.price|currency}}" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

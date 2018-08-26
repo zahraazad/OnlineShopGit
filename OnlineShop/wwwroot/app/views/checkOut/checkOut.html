@@ -1,0 +1,34 @@
+﻿<div id="login">
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <!--<div class="row has-error" ng-bind="errorMessage" ng-if="errorMessage"></div>-->
+            <div id="login-column" class="col-md-3">
+                <div class="login-box col-md-12">
+                    <h3 class="text-info">{{title}}</h3>
+                    <div class="form-group">
+                        <label>Cart Number</label>
+                        <input type="number" ng-model="cartNumber" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Security Code</label>
+                        <input type="number" ng-model="securityCode" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Payment Amount</label>
+                        <input type="number" ng-model="amount" class="form-control" disabled />
+                    </div>
+                    <div class="form-group">
+                        <button title="By click the payment will be take place." ng-click="placeOrder()" class="btn btn-primary">Pay</button>
+                    </div>
+                    <div class="form-group has-error" ng-if="errorMessage">
+                        <p ng-bind="errorMessage" class="help-block">{{errorMessage}}</p>
+                    </div>
+                    <div class="form-group has-error" ng-if="successMessage">
+                        <p ng-bind="successMessage" class="help-block">{{successMessage}}</p>
+                    </div>
+                    <a class="navbar-brand" ui-sref="viewCart">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

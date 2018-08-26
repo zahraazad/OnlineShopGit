@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\OnlineShop.DataLayer\OnlineShop.DataLayer.DataLayer\OnlineShop.DataLayer.DataLayer.csproj" />
+    <ProjectReference Include="..\OnlineShop.Domains.Products.ProductModel\OnlineShop.Domains.Products.ProductModel.csproj" />
+    <ProjectReference Include="..\OnlineShop.Domains.Products.ProductsService\OnlineShop.Domains.Products.ProductsService.csproj" />
+  </ItemGroup>
+
+</Project>

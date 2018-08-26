@@ -1,0 +1,61 @@
+﻿<div class="container">
+    <h3 class="text-info">{{title}}</h3>
+
+    <form name="productForm" ng-submit="saveChanges(productForm.$valid)" novalidate>
+        <div class="form-group" ng-class="{ 'has-error' : (productForm.productName.$invalid &&  validate ) || (productForm.productName.$touched && productForm.productName.$invalid) }">
+            <label for="productName">Name</label>
+            <input type="text" name="productName" id="productName" class="form-control" ng-model="product.name" required>
+            <p ng-show="(productForm.productName.$invalid &&  validate ) || (productForm.productName.$touched && productForm.productName.$invalid)" class="help-block">Product Name is required.</p>
+
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : (productForm.productDescription.$invalid &&  validate ) || (productForm.productDescription.$touched && productForm.productDescription.$invalid) }">
+            <label for="productDescription">Description</label>
+            <input name="productDescription" type="text" class="form-control" id="productDescription" ng-model="product.description" required>
+            <p ng-show="(productForm.productDescription.$invalid &&  validate ) || (productForm.productDescription.$touched && productForm.productDescription.$invalid)" class="help-block">Product Description is required.</p>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : (productForm.productPrice.$invalid &&  validate ) || (productForm.productPrice.$touched && productForm.productPrice.$invalid) }">
+            <label for="productPrice">Price</label>
+            <input name="productPrice" type="number" class="form-control" id="productPrice" ng-model="product.price" min="1" required>
+            <p ng-show="(productForm.productPrice.$invalid &&  validate ) || (productForm.productPrice.$touched && productForm.productPrice.$invalid)" class="help-block">Product Price greater than zero is required.</p>
+
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : (productForm.productGroupId.$invalid &&  validate ) || (productForm.productGroupId.$touched && productForm.productGroupId.$invalid) }">
+            <label for="productGroupId">Group</label>
+            <drop-down name="productGroupId" ng-model="product.groupId" options="productGroups" text="" ng-disable="loggedIn" required></drop-down>
+            <p ng-show="(productForm.productGroupId.$invalid &&  validate ) || (productForm.productGroupId.$touched && productForm.productGroupId.$invalid)" class="help-block">Product GroupId is required.</p>
+
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : (productForm.quantityOnHand.$invalid &&  validate ) || (productForm.quantityOnHand.$touched && productForm.quantityOnHand.$invalid) }">
+            <label for="quantityOnHand">On Hand</label>
+            <input name="quantityOnHand" type="number" class="form-control" id="quantityOnHand" ng-model="product.quantityOnHand" min="1" required>
+            <p ng-show="(productForm.quantityOnHand.$invalid &&  validate ) || (productForm.quantityOnHand.$touched && productForm.quantityOnHand.$invalid)" class="help-block">Product Quantity On Hand is required.</p>
+
+        </div>
+        <div class="form-group row">
+            <div class="col-md-4">
+                <img ng-src="{{product.imagePath}}" class="img-thumbnail product-image" />
+            </div>
+            <div class="col-md-">
+                <br />
+            </div>
+        </div>
+        <div class="form-group" ng-if="loggedIn">
+            <p>Upload <strong>new Image</strong> using this form:</p>
+            <input type="file" demo-file-model="imageFile" accept="image.jpeg" />
+            <button class="btn btn-primary" ng-click="uploadFile(imageFile)" type="button"><span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>Upload</button>
+
+        </div>
+        <div class="form-group" ng-if="loggedIn">
+            <button class=" btn btn-default" ng-click="cancelChanges()">Cancel</button>
+            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save</button>
+        </div>
+        <div class="form-group" ng-if="!loggedIn">
+            <a class="btn btn-default" ng-click="cancelChanges()">Back</a>
+            <a class="btn btn-primary" ng-click="addToCart(product.id)"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to cart</a>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-md-12 alert-danger" ng-if="errorMessage" ng-bind="errorMessage"></div>
+        <div class="col-md-12 alert-success" ng-if="successMessage" ng-bind="successMessage"></div>
+    </div>
+</div>

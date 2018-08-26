@@ -1,0 +1,92 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 45px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.product-image {
+    height: 250px;
+    width: 200px;
+    overflow: hidden;
+}
+
+.cartItem-image {
+    height: 75px;
+    width: 66px;
+    overflow: hidden;
+}
+
+.footer {
+    text-align: center;
+    line-height: 40px;
+    position: fixed;
+    height: 40px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #755e75;
+    color: white;
+    text-align: center;
+}
+
+.navbar-brand-cart {
+    color: #ffffff;
+    background-color: transparent;
+}
+
+td.imageColumn {
+    width: 70px;
+}
+
+.itemDescriptionColumn {
+    width: 335px;
+    min-width: 335px;
+    max-width: 335px;
+}
+
+.itemCountColumn {
+    width: 135px;
+    min-width: 135px;
+    max-width: 135px;
+    padding: 10px;
+}
+
+.itemCount {
+    width: 70px;
+    min-width: 70px;
+    max-width: 70px;
+}
+
+.itemPriceColumn {
+    width: 70px;
+    min-width: 70px;
+    max-width: 70px;
+}
+
+.thead-dark {
+    background-color: #bfabbf;
+}
+a.shopmore {
+    float: right;
+    margin: 16px 10px;
+}

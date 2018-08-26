@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title></title>
+
+    <!-- JS ===================== -->
+    <!-- load angular -->
+    <script src="app/lib/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.14/angular-ui-router.min.js"></script>
+    <script src="app/lib/angular-animate.js"></script>
+    <script src="app/lib/angular-sanitize.js"></script>
+    <script src="app/lib/angular-cookies.min.js"></script>
+
+    <!-- load module -->
+    <script src="app/scripts/app.js"></script>
+
+    <!-- load services -->
+    <script src="app/scripts/authorizationService.js"></script>
+    <script src="app/scripts/authFactory.js"></script>
+    <script src="app/scripts/system.js"></script>
+    <script src="app/scripts/fileUploadService.js"></script>
+    <script src="app/scripts/shoppingService.js"></script>
+
+    <!-- load filters -->
+    <script src="app/scripts/toTrustedFilter.js"></script>
+
+    <!-- load directives -->
+    <script src="app/directives/fileModel/demoFileModel.js"></script>
+    <script src="app/directives/dropDown/dropDown.js"></script>
+
+    <!-- load controllers -->
+    <script src="app/scripts/mainController.js"></script>
+    <script src="app/views/home/homeController.js"></script>
+    <script src="app/views/about/aboutController.js"></script>
+    <script src="app/views/signIn/signInController.js"></script>
+    <script src="app/views/signUp/signUpController.js"></script>
+    <script src="app/views/welcome/welcomeController.js"></script>
+    <script src="app/views/products/productsController.js"></script>
+    <script src="app/views/productDetails/productDetailsController.js"></script>
+    <script src="app/views/addProduct/addProductController.js"></script>
+    <script src="app/views/Error/errorController.js"></script>
+    <script src="app/views/viewCart/viewCartController.js"></script>
+    <script src="app/views/checkOut/checkOutController.js"></script>
+
+    <script src="app/views/formValidation/formValidationController.js"></script>
+
+
+    <!-- load bootstrap -->
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+
+    <!-- CSS ===================== -->
+    <!-- load bootstrap -->
+    <link href="app/content/bootstrap.css" rel="stylesheet" />
+    <link href="app/content/Site.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+
+</head>
+<body ng-controller="mainController as mainCtrl">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <!-- note the ng-init and ng-click here: -->
+                <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--<a class="navbar-brand" href="#">Brand</a>-->
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" uib-collapse="navCollapsed">
+            <ul class="nav navbar-nav">
+                <li> <a class="navbar-brand" ui-sref="home">Home</a></li>
+                <li> <a class="navbar-brand" ui-sref="products">Products</a></li>
+                <li> <a class="navbar-brand" ui-sref="aboutUs">About Us</a></li>
+                <!--<li> <a class="navbar-brand" href="#/products">Products</a></li>
+                <li> <a class="navbar-brand" href="#/home">Home</a></li>
+                <li> <a class="navbar-brand" href="#/about">About Us</a></li>-->
+            </ul>
+            <a class="navbar-brand pull-right" ng-click="mainCtrl.signOut()" ng-if="loggedIn">Sign Out</a>
+            <div class="navbar-brand pull-right" ng-if="!loggedIn">
+                <a ui-sref="signIn">Sign In</a> or
+                <a ui-sref="signUp">Sign Up</a>
+            </div>
+            <a class="navbar-brand navbar-brand-cart pull-right" ui-sref="viewCart" ng-if="cartItems.length>0"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>{{cartItems.length}}</a>
+            <!--<a class="navbar-brand pull-right" href="#/signIn" ng-if="!mainCtrl.loggedIn">Sign In</a>
+            <a class="navbar-brand pull-right" ng-click="mainCtrl.signOut()" ng-if="mainCtrl.loggedIn">Sign Out</a>-->
+        </div>
+    </nav>
+    <div class="container body-content">
+        <div class="container">
+            <ui-view></ui-view>
+            <!--<ng-view></ng-view>-->
+        </div>
+        <footer class="footer navbar-fixed-bottom">
+            <p>
+                &copy; 2018 - OnlineShop - By  &nbsp;<b>   Zahra Azad </b>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

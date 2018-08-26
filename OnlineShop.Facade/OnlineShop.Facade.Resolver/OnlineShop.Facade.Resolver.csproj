@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.2" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\OlineShop.Logger\OlineShop.Logger\OlineShop.Logger.csproj" />
+    <ProjectReference Include="..\..\OnlineShop.DataLayer\OnlineShop.DataLayer.DataLayer\OnlineShop.DataLayer.DataLayer.csproj" />
+    <ProjectReference Include="..\..\OnlineShop.Domains\OnlineShop.Domains.Products\OnlineShop.Domains.Products.ProductsRepository\OnlineShop.Domains.Products.ProductsRepository.csproj" />
+    <ProjectReference Include="..\..\OnlineShop.Domains\Onlineshop.Domains.Sales\Onlineshop.Domains.Sales.SalesRepository\Onlineshop.Domains.Sales.SalesRepository.csproj" />
+    <ProjectReference Include="..\..\OnlineShop.Domains\Onlineshop.Domains.Sales\Onlineshop.Domains.Sales.SalesService\Onlineshop.Domains.Sales.SalesService.csproj" />
+    <ProjectReference Include="..\..\OnlineShop.Domains\OnlineShop.Domains.Users\OnlineShop.Domains.Users.UserRepository\OnlineShop.Domains.Users.UserRepository.csproj" />
+    <ProjectReference Include="..\..\OnlineShop.Domains\OnlineShop.Domains.Users\OnlineShop.Domains.Users.UsersModel\OnlineShop.Domains.Users.UsersModel.csproj" />
+    <ProjectReference Include="..\OnlineShop.Facade\OnlineShop.Facade.csproj" />
+  </ItemGroup>
+
+</Project>
