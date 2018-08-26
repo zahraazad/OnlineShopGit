@@ -62,6 +62,8 @@ namespace OnlineShop.Domains.Users.UserService.Services
         {
             try
             {
+                if (sessionid == null)
+                    return false;
                 UserSession userSession = _userRepository.GetSessionInfo(Guid.Parse(sessionid));
                 if (userSession == null)
                     return false;
